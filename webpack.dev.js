@@ -14,8 +14,19 @@ module.exports = {
                 test: '/\.js$/',
                 exclude: /node_modules/,
                 loader: "babel-loader"
+            },
+            {
+                test: /\.scss$/,
+                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
             }
-        ]
+        
+        ],
+        // resolve: {
+        //     extensions: ['', '.js', '.jsx', '.css'],
+        //     modulesDirectories: [
+        //       'node_modules'
+        //     ]        
+        // }
     },
     plugins: [
         new HtmlWebPackPlugin({
