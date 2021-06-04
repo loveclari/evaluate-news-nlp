@@ -10,6 +10,9 @@ const app = express()
 
 app.use(express.static('dist'))
 
+// Create JS object
+const appData = {}
+
 console.log(__dirname)
 
 app.get('/', function (req, res) {
@@ -25,3 +28,8 @@ app.listen(8080, function () {
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
+
+// POST method route
+app.post('/', function (req, res) {
+    res.send('POST received')
+  })
