@@ -1,10 +1,17 @@
+//API key
 const dotenv = require('dotenv');
 dotenv.config();
 const api_key = process.env.API_KEY;
 
+//require 
+
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const fetch = require('node-fetch');
 
 const app = express()
 
@@ -21,9 +28,10 @@ app.get('/', function (req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
+const port = 8080;
+const server = app.listen(port, function () {
     console.log('Example app listening on port 8080!')
-})
+});
 
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
