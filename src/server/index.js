@@ -2,6 +2,7 @@
 const dotenv = require('dotenv');
 dotenv.config();
 const api_key = process.env.API_KEY;
+const api_id = process.env.API_ID;
 
 //require 
 
@@ -13,8 +14,14 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const fetch = require('node-fetch');
 
-const app = express()
+//const use
 
+const app = express()
+app.use(cors());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(bodyParser.json());
 app.use(express.static('dist'))
 
 // Create JS object
@@ -26,7 +33,8 @@ console.log(__dirname)
 // designates what port the app will listen to for incoming requests
 const port = 8080;
 const server = app.listen(port, function () {
-    console.log('Example app listening on port 8080!')
+    console.log(`Server running`);
+    console.log(`running on localhost: ${port}`)
 });
 
 app.get('/', function (req, res) {
@@ -39,6 +47,16 @@ app.get('/test', function (req, res) {
 })
 
 // POST method route
-app.post('/', function (req, res) {
+app.post('/languageProcess', async (req, res) => {
+    const keys = `${api_id}${api_key}&url=${txt}&lang=${lang}`;
+    try {
+        const response = await fetch(keys);
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (error) {
+        console.log('error', error);
+    }
+
     res.send('POST received')
-  })
+})

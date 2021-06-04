@@ -6,6 +6,13 @@ body {
 
 main {
     flex: 2;
+
+    h2 {
+        font-size: 32px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        letter-spacing: 2px;
+        padding-bottom: 50px;
+    }
 }
 
 section {
