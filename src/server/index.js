@@ -22,16 +22,17 @@ const appData = {}
 
 console.log(__dirname)
 
-app.get('/', function (req, res) {
-    // res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('src/client/views/index.html'))
-})
 
 // designates what port the app will listen to for incoming requests
 const port = 8080;
 const server = app.listen(port, function () {
     console.log('Example app listening on port 8080!')
 });
+
+app.get('/', function (req, res) {
+    // res.sendFile('dist/index.html')
+    res.sendFile(path.resolve('src/client/views/index.html'))
+})
 
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
