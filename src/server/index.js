@@ -47,7 +47,7 @@ app.get('/test', function (req, res) {
 })
 
 // POST method route
-app.post('/languageProcess', async (req, res) => {
+app.post('/languageprocess', async (req, res) => {
     const keys = `${api_id}${api_key}&url=${txt}&lang=${lang}`;
     try {
         const response = await fetch(keys);
