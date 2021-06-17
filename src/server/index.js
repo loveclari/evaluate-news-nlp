@@ -1,6 +1,4 @@
 //API key
-const dotenv = require('dotenv');
-dotenv.config();
 const api_key = process.env.API_KEY;
 const api_id = process.env.API_ID;
 
@@ -11,10 +9,11 @@ const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const fetch = require('node-fetch');
+const dotenv = require('dotenv');
+dotenv.config();
 
-//const use
+//app use
 
 const app = express()
 app.use(cors());

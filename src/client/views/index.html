@@ -25,14 +25,20 @@
             <section>
                 <h2>Sentiment Analysis</h2>
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" placeholder="Name">
+                    <input id="url" type="text" name="input" value="" placeholder="Name">
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             </section>
 
             <section>
                 <strong>Form Results:</strong>
-                <div id="results"></div>
+                <div>
+                <div id="model"></div>
+                <div id="score"></div>
+                <div id="confidence"></div>
+                <div id="subjectvity"></div>
+                <div id="agreement"></div>
+                </div>
             </section>
         </main>
 
