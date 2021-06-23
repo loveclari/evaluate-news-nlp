@@ -1,51 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Test</title>
-        <link href="/styles/resets.scss">
-        <link href="/styles/base.scss">
-        <link href="/styles/header.scss">
-        <link href="/styles/form.scss">
-        <link href="/styles/footer.scss">
-    </head>
 
-    <body>
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link href="/styles/resets.scss">
+    <link href="/styles/base.scss">
+    <link href="/styles/header.scss">
+    <link href="/styles/form.scss">
+    <link href="/styles/footer.scss">
+</head>
 
-        <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                <h1>Natural Language Processing Evaluation Tool</h1>
-            </div>
-        </header>
+<body>
 
-        <main>
-            <section>
-                <h2>Sentiment Analysis</h2>
-                <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="url" type="text" name="input" value="" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
-                </form>
-            </section>
+    <header>
+        <div class="">
+            Logo
+        </div>
+        <div class="">
+            <h1>Natural Language Processing Evaluation Tool</h1>
+        </div>
+    </header>
 
-            <section>
-                <strong>Form Results:</strong>
-                <div>
+    <main>
+        <section>
+            <h2>Sentiment Analysis</h2>
+            <form class="" onsubmit="return Client.handleSubmit(event)">
+                <input id="url" type="text" name="input" value="" placeholder="Name">
+                <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)"
+                    onsubmit="return Client.handleSubmit(event)">
+            </form>
+        </section>
+
+        <section>
+            <strong>Form Results:</strong>
+            <div>
                 <div id="model"></div>
                 <div id="score"></div>
                 <div id="confidence"></div>
                 <div id="subjectvity"></div>
                 <div id="agreement"></div>
-                </div>
-            </section>
-        </main>
+            </div>
+        </section>
+    </main>
 
-        <footer>
-            <p>This is a footer</p>
-        </footer>
-        <script></script>
+    <footer>
+        <p>This is a footer</p>
+    </footer>
+    <script>
+        // Check that service workers are supported
+        // if ('serviceWorker' in navigator) {
+        //     // Use the window load event to keep the page load performant
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('/service-worker.js');
+        //     });
+        // }
+    </script>
 
-    </body>
+</body>
+
 </html>
