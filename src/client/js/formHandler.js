@@ -21,27 +21,15 @@ const handleSubmit = (event) => {
             body: JSON.stringify(data),
         })
         .then((response) => response.json())
-        .then(() => updateUI());
+        .then((response) => updateUI());
     } else {
-        console.log("Error entered URL")
+        console.log("Error URL")
 
     }
 
-    const getData = async(url = '') => {
-        const request = await fetch(url);
-        console.log(request);
-        try {
-            const allData = await request.json();
-            console.log(allData);
-        } catch (error) {
-            console.log('The API is getting an error', error);
-        }
-    };
 
-    const updateUI = async() => {
-        const request = await fetch('/all');
+    const updateUI = (response) => {
         try {
-            const allData = await request.json();
             model.innerHTML = `Model: ${response.model}`;
             score.innerHTML = `Score: ${response.score}`;
             confidence.innerHTML = `Confidence: ${response.confidence}%`;
