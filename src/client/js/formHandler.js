@@ -12,7 +12,7 @@ const handleSubmit = (event) => {
     let enteredUrl = document.getElementById('url').value;
     if (Client.checkForUrl(enteredUrl)) {
         console.log('::: Url entered :::');
-        fetch('http://localhost:8081/languageprocess', {
+        fetch('http://localhost:8080/languageprocess', {
             method: 'POST',
             credentials: 'same-origin',
             headers: {
@@ -21,14 +21,25 @@ const handleSubmit = (event) => {
             body: JSON.stringify(data),
         })
         .then((response) => response.json())
-        .then((response) => updateUI());
+        .then(() => updateUI());
     } else {
-        console.log("Error URL")
+        console.log("Error entered URL")
 
     }
 
+    const getData = async(url = '') => {
+        const request = await fetch(url);
+        console.log(request);
+        try {
+            const allData = await request.json();
+            console.log(allData);
+        } catch (error) {
+            console.log('The API is getting an error', error);
+        }
+    };
 
-    const updateUI = (response) => {
+    const updateUI = async () => {
+        const request = await fetch('http://localhost:8081/languageprocess');
         try {
             model.innerHTML = `Model: ${response.model}`;
             score.innerHTML = `Score: ${response.score}`;
