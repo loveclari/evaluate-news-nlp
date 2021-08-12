@@ -9,6 +9,7 @@ const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 const bodyParser = require('body-parser');
 const cors = require('cors');
+
 const fetch = require('node-fetch');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -36,26 +37,26 @@ const server = app.listen(port, function () {
     console.log(`running on localhost: ${port}`)
 });
 
-app.get('/', function (req, res) {
+app.get('/', function (require, response) {
     // res.sendFile('dist/index.html')
     res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
-app.get('/test', function (req, res) {
+app.get('/test', function (require, response) {
     res.send(mockAPIResponse)
 })
 
 // POST method route
-app.post('/languageprocess', async (req, res) => {
+app.post('/languageprocess', async (require, response) => {
     const keys = `${api_id}${api_key}&url=${txt}&lang=${lang}`;
+    const url = require.body.data;
+    const response = await fetch(keys);
     try {
-        const response = await fetch(keys);
         const data = await response.json();
         console.log(data);
+        response.send(data)
         return data;
     } catch (error) {
         console.log('error', error);
     }
-
-    res.send('POST received')
 })
