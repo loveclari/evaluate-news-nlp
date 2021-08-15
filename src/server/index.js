@@ -39,20 +39,21 @@ const server = app.listen(port, function () {
 
 app.get('/', function (require, response) {
     // res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('src/client/views/index.html'))
+    response.sendFile(path.resolve('src/client/views/index.html'))
 })
 
-app.get('/test', function (require, response) {
-    res.send(mockAPIResponse)
+app.get('/test', function (req, response) {
+    response.send(mockAPIResponse)
 })
 
 // POST method route
-app.post('/languageprocess', async (require, response) => {
+app.post('/languageprocess', async (req, response) => {
     const keys = `${api_id}${api_key}&url=${txt}&lang=${lang}`;
-    const url = require.body.data;
+    const inputUrl = req.body.data;
+    console.log('tk', inputUrl)
     const response = await fetch(keys);
     try {
-        const data = await response.json();
+        const data = response.json();
         console.log(data);
         response.send(data)
         return data;

@@ -11,7 +11,7 @@ const handleSubmit = (event) => {
     // check what text was put into the form field
     let enteredUrl = document.getElementById('url').value;
     const data =  {enteredUrl};
-    if (Client.checkForUrl(enteredUrl)) {
+    if (Client.checkForUrl(data)) {
         console.log('::: Url entered :::');
         fetch('http://localhost:8081/languageprocess', {
             method: 'POST',
