@@ -1,15 +1,12 @@
 function checkForUrl(url) {
-    console.log("::: Running checkForUrl :::", url);
-    let urlnames = [
-        "https://jestjs.io/",
+    let check = url.match(/^(ftp|http|https):\/\/[^ "]+$/);
+    if (check === null){
+        alert("Please enter a valid URL beginning with http:// or https://")
+    } else {
+    return true }
 
-    ]
-    if(urlnames.includes(url)) {
-        alert("Welcome, Captain!")
-    }
-
-    let checkurl = new RegExp(/^(http|https):\/\/[^ "]+$/);
-    return checkurl.test(url);
+    // let checkurl = new RegExp(/^(http|https):\/\/[^ "]+$/);
+    // return checkurl.test(url);
 
  
 }

@@ -1,6 +1,6 @@
 //API key
-const api_key = process.env.API_KEY;
-const api_id = process.env.API_ID;
+// const api_key = process.env.API_KEY;
+// const api_id = process.env.API_ID;
 
 //require 
 
@@ -42,16 +42,17 @@ app.get('/', function (require, response) {
     response.sendFile(path.resolve('src/client/views/index.html'))
 })
 
-app.get('/test', function (req, response) {
+app.get('/test', function (require, response) {
     response.send(mockAPIResponse)
 })
 
 // POST method route
-app.post('/languageprocess', async (req, response) => {
-    const keys = `${api_id}${api_key}&url=${txt}&lang=${lang}`;
-    const inputUrl = req.body.data;
-    console.log('tk', inputUrl)
-    const response = await fetch(keys);
+app.post('/languageprocess', async (require, response) => {
+    const url = require.body.data;
+    // const keys = `${process.env.api_id}${process.env.api_key}&url=${txt}&lang=${lang}`;
+    const keys = `https://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&text=${url}&lang=en`
+   
+    // const response = await fetch(keys);
     try {
         const data = response.json();
         console.log(data);
